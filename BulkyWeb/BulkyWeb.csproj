@@ -17,14 +17,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+    <PackageReference Include="Stripe.net" Version="44.5.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Bulky.DataAccess\Bulky.DataAccess.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Identity\Data\" />
+    <ProjectReference Include="..\Bulky.Utility\Bulky.Utility.csproj" />
   </ItemGroup>
 
 </Project>
