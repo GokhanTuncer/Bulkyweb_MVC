@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace BulkyWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	//[Authorize(Roles = SD.Role_Admin)]
+	[Authorize(Roles = SD.Role_Admin)]
 	public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -49,7 +49,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Category categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            Category categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -75,7 +75,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _unitOfWork.Category.Get(u => u.Id == id);
+            Category? categoryFromDb = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
 
             if (categoryFromDb == null)
             {
@@ -86,7 +86,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         [HttpPost, ActionName("Delete")]
         public IActionResult DeletePOST(int? id)
         {
-            Category? obj = _unitOfWork.Category.Get(u => u.Id == id);
+            Category? obj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
             if (obj == null)
             {
                 return NotFound();

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 namespace BulkyWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
-	//[Authorize(Roles = SD.Role_Admin)]
+	[Authorize(Roles = SD.Role_Admin)]
 	public class CompanyController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -38,7 +38,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
             else
             {
                 //update
-                Company companyObj = _unitOfWork.Company.Get(u => u.Id == id);
+                Company companyObj = _unitOfWork.Company.GetFirstOrDefault(u => u.Id == id);
                 return View(companyObj);
             }
 		}
@@ -79,7 +79,7 @@ namespace BulkyWeb.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-            var CompanyToBeDeleted = _unitOfWork.Company.Get(u=>u.Id == id);
+            var CompanyToBeDeleted = _unitOfWork.Company.GetFirstOrDefault(u=>u.Id == id);
             if(CompanyToBeDeleted == null)
             {
                 return Json(new  { success = false, message = "Error while deleting" });
