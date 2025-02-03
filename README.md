@@ -23,7 +23,7 @@ Bu projede Bulky isimli bir kitap satış websitesini oluşturdum. Asp .NET Core
 - Ürün ekleme/düzenleme/silme özelliği vardır.
 - Ürün kategorisi ekleme/düzenleme/silme özelliği vardır.
 - Şirket ekleme/düzenleme/silme özelliği vardır.
-- 
+
 ![BulkyCompany](https://github.com/user-attachments/assets/7e9db616-10b9-476f-ba8f-3a423c216e17)
 ![BulkyProduct](https://github.com/user-attachments/assets/6e82b587-7891-4649-8901-009d0344e4a8)
 ![BulkAdminCategory](https://github.com/user-attachments/assets/0309d60c-d433-4ae3-b39d-09fc44756e52)
